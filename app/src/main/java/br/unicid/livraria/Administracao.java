@@ -2,6 +2,7 @@ package br.unicid.livraria;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 public class Administracao extends AppCompatActivity {
 
@@ -9,5 +10,9 @@ public class Administracao extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.administracao);
+    }
+
+    public void sair(View botao){
+        finish();
     }
 }

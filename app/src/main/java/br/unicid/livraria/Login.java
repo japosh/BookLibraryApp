@@ -34,8 +34,14 @@ public class Login extends AppCompatActivity {
 
     }
 
+    public void newRegister(View botao){
+        Intent it = new Intent(this, NewRegister.class);
+        startActivity(it);
+
+
+    }
+
     public void voltar(View botao){
-        finishAffinity();
         finish();
     }
 }

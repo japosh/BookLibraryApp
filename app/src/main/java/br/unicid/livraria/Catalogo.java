@@ -2,6 +2,7 @@ package br.unicid.livraria;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class Catalogo extends AppCompatActivity {
 
@@ -9,5 +10,9 @@ public class Catalogo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.catalogo);
+    }
+
+    public void voltar(View botao){
+        finish();
     }
 }

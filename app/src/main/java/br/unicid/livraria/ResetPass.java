@@ -17,7 +17,6 @@ public class ResetPass extends AppCompatActivity {
     }
 
     public void voltar(View botao){
-        finishAffinity();
         finish();
     }
 }
