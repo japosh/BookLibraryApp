@@ -21,7 +21,7 @@ public class Inicio extends AppCompatActivity {
     }
 
     public void dados(View botao){
-        Intent it = new Intent(this, AdmDados.class);
+        Intent it = new Intent(this, Login.class);
         startActivity(it);
 
 

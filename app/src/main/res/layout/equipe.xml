@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Inicio">
+    tools:context=".Equipe">
 
     <ImageView
         android:id="@+id/imageView"
@@ -27,7 +27,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="HOME"
+        android:text="EQUIPE DE DESENVOLVIMENTO"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/btnFechar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,68 +69,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.012" />
 
-    <Button
-        android:id="@+id/btnCatalogo"
-        android:layout_width="336dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="308dp"
-        android:onClick="catalogo"
-        android:text="Catálogo de Livros"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnDados"
-        android:layout_width="337dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="244dp"
-        android:onClick="dados"
-        android:text="Administração de Dados"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.266"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCatalogo"
-        app:layout_constraintVertical_bias="0.111" />
-
-    <Button
-        android:id="@+id/btnEquipe"
-        android:layout_width="337dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="244dp"
-        android:onClick="equipe"
-        android:text="Sobre a Equipe de Desenvolvimento"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.266"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDados"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/btnFechar"
-        android:layout_width="337dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="244dp"
-        android:onClick="fechar"
-        android:text="Sair da Aplicação"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.266"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEquipe"
-        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
