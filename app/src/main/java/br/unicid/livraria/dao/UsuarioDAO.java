@@ -1,0 +1,115 @@
+package br.unicid.livraria.dao;
+
+        import android.content.Context;
+        import android.database.Cursor;
+        import android.database.sqlite.SQLiteDatabase;
+
+        import java.util.ArrayList;
+        import java.util.List;
+
+        import br.unicid.livraria.domain.Usuario;
+        import br.unicid.livraria.util.DatabaseFactory;
+
+public class UsuarioDAO {
+
+    private Context context;
+
+    public UsuarioDAO(Context context) {
+        this.context = context;
+    }
+
+    public void create(Usuario aluno) {
+        //Obtendo o objeto que representa o banco de dados
+        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+
+        //Preparando e executando o comando SQL
+        String sql = "INSERT INTO aluno VALUES (?, ?, ?)";
+        String params[] = {aluno.getRgm(), aluno.getNome(), aluno.getEmail()};
+        db.execSQL(sql, params);
+
+        //Fechando o banco de dados
+        db.close();
+    }
+
+    public void update(Usuario aluno) {
+        //Obtendo o objeto que representa o banco de dados
+        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+
+        //Preparando e executando o comando SQL
+        String sql = "UPDATE aluno SET nome = ?, email = ? WHERE rgm = ?";
+        String params[] = {aluno.getNome(), aluno.getEmail(), aluno.getRgm()};
+        db.execSQL(sql, params);
+
+        //Fechando o banco de dados
+        db.close();
+    }
+
+    public void delete(String rgm) {
+        //Obtendo o objeto que representa o banco de dados
+        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+
+        //Preparando e executando o comando SQL
+        String sql = "DELETE FROM aluno WHERE rgm = ?";
+        String params[] = {rgm};
+        db.execSQL(sql, params);
+
+        //Fechando o banco de dados
+        db.close();
+    }
+
+    public Usuario findByRgm(String rgm) {
+        //Obtendo o objeto que representa o banco de dados
+        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+
+        //Preparando e executando o comando SQL e obtendo os dados
+        String sql = "SELECT * FROM aluno WHERE rgm = ?";
+        String params[] = {rgm};
+        Cursor rs = db.rawQuery(sql, params);
+
+        Usuario usuario = null;
+
+        if (rs.moveToNext()) {
+            usuario = new Usuario();
+            usuario.setRgm(rs.getString(0)); //campo rgm
+            usuario.setNome(rs.getString(1)); //campo nome
+            usuario.setEmail(rs.getString(2)); //campo email
+        }
+
+        //Fechando o banco de dados
+        db.close();
+
+        //Retornando o objeto aluno
+        return usuario;
+    }
+
+    public List<Usuario> findAll() {
+        //Obtendo o objeto que representa o banco de dados
+        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+
+        //Preparando e executando o comando SQL e obtendo os dados
+        String sql = "SELECT * FROM aluno";
+        Cursor rs = db.rawQuery(sql, null);
+
+        //Criando um objeto Lista de alunos (vazia)
+        List<Usuario> usuarios = new ArrayList<>();
+
+        //Enquanto houver linhas registros...
+        while (rs.moveToNext()) {
+            //Cria um objeto aluno, preencha com os dados da linha
+            Usuario usuario = new Usuario();
+            usuario.setRgm(rs.getString(0)); //campo rgm
+            usuario.setNome(rs.getString(1)); //campo nome
+            usuario.setEmail(rs.getString(2)); //campo email
+
+            //Adiciona o objeto à lista
+            //usuario.add(usuario);
+        }
+
+        //Fechando o banco de dados
+        db.close();
+
+        //Retornando o objeto aluno
+        return usuarios;
+    }
+}
+
