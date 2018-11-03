@@ -22,8 +22,15 @@ public class Login extends AppCompatActivity {
     }
 
     public void login(View botao){
-        Intent it = new Intent(this, AdmDados.class);
+        Intent it = new Intent(this, Administracao.class);
         startActivity(it);
+
+    }
+
+    public void resetPass(View botao){
+        Intent it = new Intent(this, ResetPass.class);
+        startActivity(it);
+
 
     }
 
