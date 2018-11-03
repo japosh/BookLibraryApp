@@ -1,46 +1,36 @@
 package br.unicid.livraria.domain;
 
 public class Usuario {
-    private String rgm;
-    private String nome;
-    private String email;
+    private String user;
+    private String pass;
 
     public Usuario() {
     }
 
-    public Usuario(String rgm, String nome, String email) {
-        this.rgm = rgm;
-        this.nome = nome;
-        this.email = email;
+    public Usuario(String user, String pass) {
+        this.user = user;
+        this.pass = pass;
     }
 
-    public String getRgm() {
-        return rgm;
+    public String getUser() {
+        return user;
     }
 
-    public void setRgm(String rgm) {
-        this.rgm = rgm;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public String getNome() {
-        return nome;
+    public String getPass() {
+        return pass;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     @Override
     public String toString() {
-        return "{" + rgm + ", " + nome + ", " + email + "}";
+        return "{" + user + ", " + pass + "}";
     }
 }
 

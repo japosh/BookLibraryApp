@@ -18,26 +18,26 @@ public class UsuarioDAO {
         this.context = context;
     }
 
-    public void create(Usuario aluno) {
+    public void create(Usuario usuario) {
         //Obtendo o objeto que representa o banco de dados
         SQLiteDatabase db = DatabaseFactory.getDatabase(context);
 
         //Preparando e executando o comando SQL
-        String sql = "INSERT INTO aluno VALUES (?, ?, ?)";
-        String params[] = {aluno.getRgm(), aluno.getNome(), aluno.getEmail()};
+        String sql = "INSERT INTO usuario VALUES (?, ?)";
+        String params[] = {usuario.getUser(), usuario.getPass()};
         db.execSQL(sql, params);
 
         //Fechando o banco de dados
         db.close();
     }
 
-    public void update(Usuario aluno) {
+    public void update(Usuario usuario) {
         //Obtendo o objeto que representa o banco de dados
         SQLiteDatabase db = DatabaseFactory.getDatabase(context);
 
         //Preparando e executando o comando SQL
-        String sql = "UPDATE aluno SET nome = ?, email = ? WHERE rgm = ?";
-        String params[] = {aluno.getNome(), aluno.getEmail(), aluno.getRgm()};
+        String sql = "UPDATE usuario SET user = ?, pass = ? WHERE rgm = ?";
+        String params[] = {usuario.getUser(), usuario.getPass();
         db.execSQL(sql, params);
 
         //Fechando o banco de dados
@@ -87,7 +87,7 @@ public class UsuarioDAO {
         SQLiteDatabase db = DatabaseFactory.getDatabase(context);
 
         //Preparando e executando o comando SQL e obtendo os dados
-        String sql = "SELECT * FROM aluno";
+        String sql = "SELECT * FROM usuario";
         Cursor rs = db.rawQuery(sql, null);
 
         //Criando um objeto Lista de alunos (vazia)
@@ -97,9 +97,8 @@ public class UsuarioDAO {
         while (rs.moveToNext()) {
             //Cria um objeto aluno, preencha com os dados da linha
             Usuario usuario = new Usuario();
-            usuario.setRgm(rs.getString(0)); //campo rgm
-            usuario.setNome(rs.getString(1)); //campo nome
-            usuario.setEmail(rs.getString(2)); //campo email
+            usuario.setUser(rs.getString(0)); //campo usuario(login)
+            usuario.setPass(rs.getString(1)); //campo senha
 
             //Adiciona o objeto à lista
             //usuario.add(usuario);
