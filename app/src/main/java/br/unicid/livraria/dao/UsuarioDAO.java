@@ -37,7 +37,7 @@ public class UsuarioDAO {
 
         //Preparando e executando o comando SQL
         String sql = "UPDATE usuario SET user = ?, pass = ? WHERE rgm = ?";
-        String params[] = {usuario.getUser(), usuario.getPass();
+        String params[] = {usuario.getUser(), usuario.getPass()};
         db.execSQL(sql, params);
 
         //Fechando o banco de dados
@@ -70,9 +70,8 @@ public class UsuarioDAO {
 
         if (rs.moveToNext()) {
             usuario = new Usuario();
-            usuario.setRgm(rs.getString(0)); //campo rgm
-            usuario.setNome(rs.getString(1)); //campo nome
-            usuario.setEmail(rs.getString(2)); //campo email
+            usuario.setUser(rs.getString(0)); //campo user
+            usuario.setPass(rs.getString(1)); //campo pass
         }
 
         //Fechando o banco de dados
@@ -111,4 +110,5 @@ public class UsuarioDAO {
         return usuarios;
     }
 }
+
 
