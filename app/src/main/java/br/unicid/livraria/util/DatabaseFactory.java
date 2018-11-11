@@ -6,14 +6,13 @@ import android.database.sqlite.SQLiteDatabase;
 public class DatabaseFactory {
     public static SQLiteDatabase getDatabase(Context context) {
         //Criando o banco de dados ou abrindo um banco de dados existente
-        SQLiteDatabase db = context.openOrCreateDatabase("db_acad", Context.MODE_PRIVATE, null);
+        SQLiteDatabase db = context.openOrCreateDatabase("db_livraria", Context.MODE_PRIVATE, null);
 
-        //Criando a tabela Aluno
+        //Criando a tabela Usuario
         String sqlTable =
-                "CREATE TABLE IF NOT EXISTS aluno (" +
-                        "rgm VARCHAR(8) PRIMARY KEY," +
-                        "nome VARCHAR(50) NOT NULL," +
-                        "email VARCHAR(50))";
+                "CREATE TABLE IF NOT EXISTS usuario (" +
+                        "user VARCHAR(8) PRIMARY KEY," +
+                        "pass VARCHAR(50) NOT NULL)";
 
         db.execSQL(sqlTable);
 

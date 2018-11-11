@@ -35,7 +35,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void newRegister(View botao){
-        Intent it = new Intent(this, NewRegister.class);
+        Intent it = new Intent(this, NovoUsuario.class);
         startActivity(it);
 
 

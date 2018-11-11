@@ -9,7 +9,7 @@ import android.widget.Toast;
 import br.unicid.livraria.dao.UsuarioDAO;
 import br.unicid.livraria.domain.Usuario;
 
-public class NewRegister extends AppCompatActivity {
+public class EditaUsuario extends AppCompatActivity {
 
     private EditText txtUser;
     private EditText txtPass;
@@ -17,13 +17,13 @@ public class NewRegister extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.new_register);
+        setContentView(R.layout.edita_usuario);
 
         txtUser = (EditText) findViewById(R.id.txtUser);
         txtPass = (EditText) findViewById(R.id.txtPass);
     }
 
-    public void salvarDados(View view) {
+    public void alterar(View view) {
         //Obtendo os valores dos campos
         String user = txtUser.getText().toString();
         String pass = txtPass.getText().toString();
@@ -43,7 +43,7 @@ public class NewRegister extends AppCompatActivity {
         txtPass.setText(null);
     }
 
-    public void voltar(View botao){
+    public void fechar(View botao){
         finish();
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewRegister">
+    tools:context=".EditaUsuario">
 
     <ImageView
         android:id="@+id/imageView"
@@ -88,9 +88,11 @@
         android:layout_marginTop="304dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:inputType="none"
+        android:focusable="false"
+        android:clickable="false"
         android:ems="10"
-        android:hint="Digite o seu login..."
-        android:inputType="textPersonName"
+        android:hint="Nome Usuario"
         app:layout_constraintBottom_toTopOf="@+id/btnCatalogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.471"
@@ -98,12 +100,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
-        android:text="SENHA:"
+        android:text="SENHA ATUAL:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUser" />
 
@@ -112,14 +114,44 @@
         android:layout_width="325dp"
         android:layout_height="43dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="44dp"
+        android:ems="10"
+        android:hint="Digite a sua senha..."
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="NOVA SENHA:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.695" />
+
+    <EditText
+        android:id="@+id/txtPassNew"
+        android:layout_width="325dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Digite a sua senha..."
-        android:inputType="textPassword"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/btnCatalogo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.0" />
@@ -128,14 +160,20 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="120dp"
         android:text="CONFIRMA SENHA:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.031"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPass" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassNew2"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/txtPassNew"
+        android:id="@+id/txtPassNew2"
         android:layout_width="325dp"
         android:layout_height="43dp"
         android:layout_marginStart="8dp"
@@ -144,12 +182,12 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Digite a sua senha novamente..."
-        android:inputType="textPassword"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPass"
-        app:layout_constraintVertical_bias="0.252" />
+        app:layout_constraintVertical_bias="0.6" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -186,13 +224,13 @@
 
     <Button
         android:id="@+id/btnSalvar"
-        android:layout_width="167dp"
+        android:layout_width="168dp"
         android:layout_height="34dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
-        android:onClick="login"
-        android:text="Salvar"
+        android:onClick="alterar"
+        android:text="Salvar Alterações"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnFechar"
         app:layout_constraintHorizontal_bias="0.0"
@@ -205,12 +243,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
-        android:onClick="voltar"
+        android:onClick="fechar"
         android:text="Fechar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.972"
         app:layout_constraintStart_toEndOf="@+id/btnSalvar" />
-
 
 </android.support.constraint.ConstraintLayout>

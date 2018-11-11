@@ -41,14 +41,13 @@ public class UsuariosAdapter extends BaseAdapter {
 
         View item = LayoutInflater.from(context).inflate(R.layout.usuario_item, null);
 
-        //Usuario a = usuarios.get(position);
+        Usuario a = usuarios.get(position);
 
         //TextView user   = (TextView) item.findViewById(R.id.lblUser);
         //TextView pass  = (TextView) item.findViewById(R.id.lblPass);
 
-        //rgm.setText(a.getRgm());
-        //nome.setText(a.getNome());
-        //email.setText(a.getEmail());
+        //user.setText(a.getUser());
+        //pass.setText(a.getPass());
 
         return item;
     }
