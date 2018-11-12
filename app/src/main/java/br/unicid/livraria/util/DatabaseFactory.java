@@ -5,8 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class DatabaseFactory {
     public static SQLiteDatabase getDatabase(Context context) {
+
         //Criando o banco de dados ou abrindo um banco de dados existente
-        SQLiteDatabase db = context.openOrCreateDatabase("db_livraria", Context.MODE_PRIVATE, null);
+        SQLiteDatabase db = context.openOrCreateDatabase("livraria", Context.MODE_PRIVATE, null);
 
         //Criando a tabela Usuario
         String sqlTable =
