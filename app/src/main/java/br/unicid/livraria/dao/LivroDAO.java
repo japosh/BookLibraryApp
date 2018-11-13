@@ -4,6 +4,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.unicid.livraria.domain.Livro;
 import br.unicid.livraria.util.DatabaseFactory;
 
@@ -16,71 +19,76 @@ public class LivroDAO {
     }
 
 
-    public void create(Aluno aluno) {
+    public void create(Livro livro) {
         //Obtendo o objeto que representa o banco de dados
         SQLiteDatabase db = DatabaseFactory.getDatabase(context);
 
         //Preparando e executando o comando SQL
-        String sql = "INSERT INTO aluno VALUES (?, ?, ?)";
-        String params[] = {aluno.getRgm(), aluno.getNome(), aluno.getEmail()};
+        String sql = "INSERT INTO livro VALUES (?, ?, ?)";
+        String params[] = {livro.getIsbn(), livro.getTitulo(), livro.getSubTitulo(), livro.getEdicao(), livro.getAutor(), livro.getQuantPag(), livro.getAnoPub(), livro.getEditora()};
         db.execSQL(sql, params);
 
         //Fechando o banco de dados
         db.close();
     }
 
-    public void update(Aluno aluno) {
+    public void update(Livro livro) {
         //Obtendo o objeto que representa o banco de dados
         SQLiteDatabase db = DatabaseFactory.getDatabase(context);
 
         //Preparando e executando o comando SQL
         String sql = "UPDATE aluno SET nome = ?, email = ? WHERE rgm = ?";
-        String params[] = {aluno.getNome(), aluno.getEmail(), aluno.getRgm()};
+        String params[] = {livro.getIsbn(), livro.getTitulo(), livro.getSubTitulo(), livro.getEdicao(), livro.getAutor(), livro.getQuantPag(), livro.getAnoPub(), livro.getEditora()};
         db.execSQL(sql, params);
 
         //Fechando o banco de dados
         db.close();
     }
 
-    public void delete(String rgm) {
+    public void delete(String isbn) {
         //Obtendo o objeto que representa o banco de dados
         SQLiteDatabase db = DatabaseFactory.getDatabase(context);
 
         //Preparando e executando o comando SQL
-        String sql = "DELETE FROM aluno WHERE rgm = ?";
-        String params[] = {rgm};
+        String sql = "DELETE FROM livro WHERE isbn = ?";
+        String params[] = {isbn};
         db.execSQL(sql, params);
 
         //Fechando o banco de dados
         db.close();
     }
 
-    public Aluno findByRgm(String rgm) {
+    public Livro  findByIsbn(String isbn) {
         //Obtendo o objeto que representa o banco de dados
         SQLiteDatabase db = DatabaseFactory.getDatabase(context);
 
         //Preparando e executando o comando SQL e obtendo os dados
-        String sql = "SELECT * FROM aluno WHERE rgm = ?";
-        String params[] = {rgm};
+        String sql = "SELECT * FROM livro WHERE isbn = ?";
+        String params[] = {isbn};
         Cursor rs = db.rawQuery(sql, params);
 
-        Aluno aluno = null;
+        Livro livro = null;
 
         if (rs.moveToNext()) {
-            aluno = new Aluno();
-            aluno.setRgm(rs.getString(0)); //campo rgm
-            aluno.setNome(rs.getString(1)); //campo nome
-            aluno.setEmail(rs.getString(2)); //campo email
+            livro = new Livro();
+            livro.setIsbn(rs.getString(0));
+            livro.setTitulo(rs.getString(1));
+            livro.setSubTitulo(rs.getString(2));
+            livro.setEdicao(rs.getString(3));
+            livro.setAutor(rs.getString(4));
+            livro.setQuantPag(rs.getString(5));
+            livro.setAnoPub(rs.getString(6));
+            livro.setEditora(rs.getString(7));
         }
 
         //Fechando o banco de dados
         db.close();
 
         //Retornando o objeto aluno
-        return aluno;
+        return livro;
     }
 
-    public List<Aluno> findAll() {
+    public List<Livro> findAll() {
         //Obtendo o objeto que representa o banco de dados
         SQLiteDatabase db = DatabaseFactory.getDatabase(context);
 
@@ -89,24 +97,29 @@ public class LivroDAO {
         Cursor rs = db.rawQuery(sql, null);
 
         //Criando um objeto Lista de alunos (vazia)
-        List<Aluno> alunos = new ArrayList<>();
+        List<Livro> livros= new ArrayList<>();
 
         //Enquanto houver linhas registros...
         while (rs.moveToNext()) {
             //Cria um objeto aluno, preencha com os dados da linha
-            Aluno aluno = new Aluno();
-            aluno.setRgm(rs.getString(0)); //campo rgm
-            aluno.setNome(rs.getString(1)); //campo nome
-            aluno.setEmail(rs.getString(2)); //campo email
+            Livro livro = new Livro();
+            livro.setIsbn(rs.getString(0));
+            livro.setTitulo(rs.getString(1));
+            livro.setSubTitulo(rs.getString(2));
+            livro.setEdicao(rs.getString(3));
+            livro.setAutor(rs.getString(4));
+            livro.setQuantPag(rs.getString(5));
+            livro.setAnoPub(rs.getString(6));
+            livro.setEditora(rs.getString(7));
 
             //Adiciona o objeto à lista
-            alunos.add(aluno);
+            livros.add(livro);
         }
 
         //Fechando o banco de dados
         db.close();
 
         //Retornando o objeto aluno
-        return alunos;
+        return livros;
     }
 }
