@@ -36,21 +36,21 @@ public class UsuarioDAO {
         SQLiteDatabase db = DatabaseFactory.getDatabase(context);
 
         //Preparando e executando o comando SQL
-        String sql = "UPDATE usuario SET user = ?, pass = ? WHERE rgm = ?";
-        String params[] = {usuario.getUser(), usuario.getPass()};
+        String sql = "UPDATE usuario SET user = ?, pass = ? WHERE user = ?";
+        String params[] = {usuario.getUser(), usuario.getPass(), usuario.getUser()};
         db.execSQL(sql, params);
 
         //Fechando o banco de dados
         db.close();
     }
 
-    public void delete(String rgm) {
+    public void delete(String usuario) {
         //Obtendo o objeto que representa o banco de dados
         SQLiteDatabase db = DatabaseFactory.getDatabase(context);
 
         //Preparando e executando o comando SQL
-        String sql = "DELETE FROM aluno WHERE rgm = ?";
-        String params[] = {rgm};
+        String sql = "DELETE FROM usuario WHERE usuario = ?";
+        String params[] = {usuario};
         db.execSQL(sql, params);
 
         //Fechando o banco de dados
@@ -70,8 +70,8 @@ public class UsuarioDAO {
 
         if (rs.moveToNext()) {
             usuario = new Usuario();
-            usuario.setUser(rs.getString(0)); //campo user
-            usuario.setPass(rs.getString(1)); //campo pass
+            usuario.setUser(rs.getString(0));
+            usuario.setPass(rs.getString(1));
         }
 
         //Fechando o banco de dados

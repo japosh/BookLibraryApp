@@ -2,6 +2,7 @@ package br.unicid.livraria.domain;
 
 public class Livro {
 
+    private String isbn;
     private String titulo;
     private String subTitulo;
     private String edicao;
@@ -18,7 +19,6 @@ public class Livro {
 
     }
 
-    private String isbn;
 
     public String getIsbn() {
         return isbn;
@@ -85,6 +85,9 @@ public class Livro {
     }
 
 
-
+    @Override
+    public String toString() {
+        return "{" + isbn + ", " + titulo + ", " + subTitulo + ", " + edicao + ", " + autor + ", " + quantPag + ", " + anoPub + ", " + editora +"}";
+    }
 
 }
