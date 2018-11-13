@@ -5,6 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import br.unicid.livraria.dao.UsuarioDAO;
+import br.unicid.livraria.domain.Usuario;
 
 public class Login extends AppCompatActivity {
 
@@ -23,14 +27,41 @@ public class Login extends AppCompatActivity {
 
     public void login(View botao){
         Intent it = new Intent(this, Administracao.class);
-        startActivity(it);
 
+        //Obtendo valores digitados
+        String user = String.valueOf(User.getText());
+        String pass = String.valueOf(Pass.getText());
+
+        //Verifica se o campo usuario está vazio
+        if (user.length() == 0){
+            Toast.makeText(this, "Informe o usuário!", Toast.LENGTH_SHORT).show();
+        //Verifica se a senha tem menos de 6 caracteres
+        }else if (pass.length() < 6){
+            Toast.makeText(this, "Senha inválida!", Toast.LENGTH_SHORT).show();
+        }else{
+
+          //Procurando usuário no banco de dados
+          Usuario usuario = new UsuarioDAO(this).findByUser(user);
+
+          //Caso encontre o usuário no banco, chama a tela de Administração
+          if (usuario != null){
+
+
+              startActivity(it);
+
+          }else{
+              //Se não encontra o usuário exibe um aviso e limpa os campos
+              Toast.makeText(this, "Usuário não cadastrado!", Toast.LENGTH_SHORT).show();
+
+              User.setText(null);
+              Pass.setText(null);
+          }
+        }
     }
 
     public void resetPass(View botao){
         Intent it = new Intent(this, ResetPass.class);
         startActivity(it);
-
 
     }
 
