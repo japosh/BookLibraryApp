@@ -37,7 +37,7 @@ public class EditaLivro extends AppCompatActivity {
 
     }
 
-    public void alterarDados(View view){
+    public void alterar(View view){
 
         //Pegando os valortes do campo
         String isbn = txtISBN.getText().toString();
