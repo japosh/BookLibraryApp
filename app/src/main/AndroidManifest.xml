@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Catalogo" />
-        <activity android:name=".Administracao" />
         <activity android:name=".Login" />
         <activity android:name=".AdmDados" />
         <activity android:name=".Equipe" />

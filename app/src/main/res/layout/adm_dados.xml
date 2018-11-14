@@ -70,7 +70,7 @@
         app:layout_constraintVertical_bias="0.012" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnManutencao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -78,14 +78,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="Manutenção do Catálogo"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/btnEditar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.895" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

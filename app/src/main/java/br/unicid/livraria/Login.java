@@ -26,7 +26,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void login(View botao){
-        Intent it = new Intent(this, Administracao.class);
+
 
         //Obtendo valores digitados
         String user = String.valueOf(User.getText());
@@ -44,9 +44,8 @@ public class Login extends AppCompatActivity {
           Usuario usuario = new UsuarioDAO(this).findByUser(user);
 
           //Caso encontre o usuário no banco, chama a tela de Administração
-          if (usuario != null){
-
-
+          if (usuario != null){ // Caso o login de erro verificar aqui
+              Intent it = new Intent(this, AdmDados.class);
               startActivity(it);
 
           }else{
@@ -68,7 +67,6 @@ public class Login extends AppCompatActivity {
     public void newRegister(View botao){
         Intent it = new Intent(this, NovoUsuario.class);
         startActivity(it);
-
 
     }
 

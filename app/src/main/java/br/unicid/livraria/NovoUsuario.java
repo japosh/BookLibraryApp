@@ -23,7 +23,7 @@ public class NovoUsuario extends AppCompatActivity {
         txtPass = (EditText) findViewById(R.id.txtPass);
     }
 
-    public void salvarDados(View view) {
+    public void salvar(View view) {
         //Obtendo os valores dos campos
         String user = txtUser.getText().toString();
         String pass = txtPass.getText().toString();
