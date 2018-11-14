@@ -23,7 +23,6 @@
         <activity android:name=".ResetPass" />
         <activity android:name=".NovoUsuario" />
         <activity android:name=".InfoLivro" />
-        <activity android:name=".ManutCatalogo" />
         <activity android:name=".NovoLivro" />
         <activity android:name=".EditaLivro" />
         <activity android:name=".EditaUsuario"></activity>

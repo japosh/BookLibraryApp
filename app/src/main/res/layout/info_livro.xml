@@ -6,6 +6,94 @@
     android:layout_height="match_parent"
     tools:context=".InfoLivro">
 
+    <TextView
+        android:id="@+id/txtSubTitulo"
+        android:layout_width="160dp"
+        android:layout_height="20dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="146dp" />
+
+    <TextView
+        android:id="@+id/txtAutor"
+        android:layout_width="160dp"
+        android:layout_height="20dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="183dp" />
+
+    <TextView
+        android:id="@+id/txtIsbn"
+        android:layout_width="289dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/txtEditora"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.995" />
+
+    <TextView
+        android:id="@+id/txtEditora"
+        android:layout_width="270dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtEdicao"
+        android:layout_width="270dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="304dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/txtAnoPub"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/txtAnoPub"
+        android:layout_width="171dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="344dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/txtQuantPag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtQuantPag"
+        android:layout_width="171dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtCategoria"
+        android:layout_width="171dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="412dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.016" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="96dp"
@@ -258,6 +346,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.939" />
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="160dp"
+        android:layout_height="20dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="114dp" />
 
 
 </android.support.constraint.ConstraintLayout>
