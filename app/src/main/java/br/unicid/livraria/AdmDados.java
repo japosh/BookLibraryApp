@@ -16,7 +16,7 @@ public class AdmDados extends AppCompatActivity {
     }
     
     public void manutCatalogo(View botao){
-        Intent it = new Intent(this, ManutCatalogo.class);
+        Intent it = new Intent(this, Catalogo.class);
         startActivity(it);
 
 
