@@ -17,7 +17,7 @@ public class Catalogo extends AppCompatActivity {
 
     private ListView lvwLista;
     private LivrosAdapter adapter;
-    private List<Livro> livros;
+    private List <Livro> livros;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -27,14 +27,9 @@ public class Catalogo extends AppCompatActivity {
 
 
         lvwLista = (ListView) findViewById(R.id.lvwLista);
-
-
-        //Buscando a lista de livros no banco
-        livros = new LivroDAO(this).findAll();
-
         adapter = new LivrosAdapter(this, livros);
 
-        lvwLista.setAdapter(adapter)
+        lvwLista.setAdapter(adapter);
 
 
     }

@@ -45,9 +45,9 @@ public class LivrosAdapter extends BaseAdapter {
         Livro l = livros.get(position);
 
         //Não sei como colocar esse lbl dentro do list view
-        TextView titulo = (TextView) item.findViewById(R.id.lblTitulo);
+      //  TextView titulo = (TextView) item.findViewById(R.id.lblTitulo);
 
-        titulo.setText(l.getTitulo());
+      //  titulo.setText(l.getTitulo());
 
 
         return item;
