@@ -1,6 +1,5 @@
 package br.unicid.livraria;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,15 +19,12 @@ public class ResetPass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reset_pass);
 
-        Intent it = getIntent();
-
-        //txtUser = (EditText) it.getStringExtra("txtUser");
+        txtUser = (EditText) findViewById(R.id.txtUser);
         txtPass = (EditText) findViewById(R.id.txtPass);
     }
 
     public void altSenha(View botao){
-       Intent it = getIntent();
-        String user = it.getStringExtra("txtUser");
+        String user = txtUser.getText().toString();
         String pass = txtPass.getText().toString();
 
         Usuario usuario = new Usuario(user, pass);

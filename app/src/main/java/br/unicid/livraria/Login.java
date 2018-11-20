@@ -36,15 +36,18 @@ public class Login extends AppCompatActivity {
         if (user.length() == 0){
             Toast.makeText(this, "Informe o usuário!", Toast.LENGTH_SHORT).show();
         //Verifica se a senha tem menos de 6 caracteres
-        }else if (pass.length() < 6){
+        }else if (pass.length() == 0){
             Toast.makeText(this, "Senha inválida!", Toast.LENGTH_SHORT).show();
         }else{
 
           //Procurando usuário no banco de dados
-          Usuario usuario = new UsuarioDAO(this).findByUser(user);
+          Usuario usuario = new UsuarioDAO(this).findByUser(user,pass);
 
           //Caso encontre o usuário no banco, chama a tela de Administração
           if (usuario != null){ // Caso o login de erro verificar aqui
+              Intent logus = new Intent(Login.this,EditaUsuario.class);
+              logus.putExtra("LogUser", user);
+              startActivity(logus);
               Intent it = new Intent(this, AdmDados.class);
               startActivity(it);
 
@@ -62,9 +65,9 @@ public class Login extends AppCompatActivity {
         User = (EditText) findViewById(R.id.txtUser);
         String user = String.valueOf(User.getText());
 
-        Intent it = new Intent(Login.this,ResetPass.class);
-        it.putExtra("txtUser", user);
-        //Intent it = new Intent(this, ResetPass.class);
+        Intent it = new Intent(Login.this,EditaUsuario.class);
+        it.putExtra("LogUser", user);
+
         startActivity(it);
 
     }

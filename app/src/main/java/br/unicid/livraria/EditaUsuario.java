@@ -1,5 +1,6 @@
 package br.unicid.livraria;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,8 +25,9 @@ public class EditaUsuario extends AppCompatActivity {
     }
 
     public void alterar(View view) {
+        Intent logus = getIntent();
         //Obtendo os valores dos campos
-        String user = txtUser.getText().toString();
+        String user = logus.getStringExtra("LogUser");
         String pass = txtPass.getText().toString();
 
         //Criando um objeto aluno com os dados dos campos
@@ -33,10 +35,10 @@ public class EditaUsuario extends AppCompatActivity {
 
         //DAO para inserção do registro
         UsuarioDAO dao = new UsuarioDAO(this);
-        dao.create(usuario);
+        dao.update(usuario);
 
         //Exibe um alerta de sucesso.
-        Toast.makeText(this, "Usuário cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Usuário alterado com sucesso", Toast.LENGTH_SHORT).show();
 
         //Limpando os campos
         txtUser.setText(null);

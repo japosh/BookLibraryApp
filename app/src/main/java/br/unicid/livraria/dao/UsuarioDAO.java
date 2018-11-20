@@ -57,13 +57,13 @@ public class UsuarioDAO {
         db.close();
     }
 
-    public Usuario findByUser(String user) {
+    public Usuario findByUser(String user, String pass) {
         //Obtendo o objeto que representa o banco de dados
         SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
         //Preparando e executando o comando SQL e obtendo os dados
-        String sql = "SELECT * FROM usuario WHERE user = ?";
-        String params[] = {user};
+        String sql = "SELECT * FROM usuario WHERE user = ? AND pass = ?";
+        String params[] = {user, pass};
         Cursor rs = db.rawQuery(sql, params);
 
         Usuario usuario = null;
