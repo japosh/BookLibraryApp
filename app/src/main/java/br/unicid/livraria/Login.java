@@ -23,7 +23,6 @@ public class Login extends AppCompatActivity {
 
         User = (EditText) findViewById(R.id.txtUser);
         Pass = (EditText) findViewById(R.id.txtPass);
-
     }
 
     public void login(View botao){

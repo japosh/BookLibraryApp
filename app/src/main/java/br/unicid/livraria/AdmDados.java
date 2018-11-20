@@ -32,6 +32,7 @@ public class AdmDados extends AppCompatActivity {
 
 
     public void sair(View botao){
-        finish();
+        Intent it = new Intent(this, Login.class);
+        startActivity(it);
     }
 }
