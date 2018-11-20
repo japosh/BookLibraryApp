@@ -1,6 +1,7 @@
 package br.unicid.livraria;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,9 +26,12 @@ public class EditaUsuario extends AppCompatActivity {
     }
 
     public void alterar(View view) {
-        Intent logus = getIntent();
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        SharedPreferences.Editor editor = pref.edit();
+
         //Obtendo os valores dos campos
-        String user = logus.getStringExtra("LogUser");
+        String user = pref.getString("key_name", null);
         String pass = txtPass.getText().toString();
 
         //Criando um objeto aluno com os dados dos campos

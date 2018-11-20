@@ -13,6 +13,7 @@ public class ResetPass extends AppCompatActivity {
 
     private EditText txtUser;
     private EditText txtPass;
+    private EditText txtPassNew;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,19 +22,27 @@ public class ResetPass extends AppCompatActivity {
 
         txtUser = (EditText) findViewById(R.id.txtUser);
         txtPass = (EditText) findViewById(R.id.txtPass);
+        txtPassNew = (EditText) findViewById(R.id.txtPassNew);
     }
 
     public void altSenha(View botao){
         String user = txtUser.getText().toString();
         String pass = txtPass.getText().toString();
+        String passNew = txtPassNew.getText().toString();
 
-        Usuario usuario = new Usuario(user, pass);
+        if( pass.equals( passNew ) ) {
+            Usuario usuario = new Usuario(user, pass);
 
-        UsuarioDAO dao = new UsuarioDAO(this);
+            UsuarioDAO dao = new UsuarioDAO(this);
 
-        dao.update(usuario);
+            dao.update(usuario);
 
-        Toast.makeText(this, "Senha alterada com sucesso!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Senha alterada com sucesso!", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "As senhas informadas não batem!", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void voltar(View botao){

@@ -1,6 +1,7 @@
 package br.unicid.livraria;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,9 +46,6 @@ public class Login extends AppCompatActivity {
 
           //Caso encontre o usuário no banco, chama a tela de Administração
           if (usuario != null){ // Caso o login de erro verificar aqui
-              Intent logus = new Intent(Login.this,EditaUsuario.class);
-              logus.putExtra("LogUser", user);
-              startActivity(logus);
               Intent it = new Intent(this, AdmDados.class);
               startActivity(it);
 
@@ -58,6 +56,13 @@ public class Login extends AppCompatActivity {
               User.setText(null);
               Pass.setText(null);
           }
+            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+            SharedPreferences.Editor editor = pref.edit();
+
+            editor.putString("key_name", user);
+
+            editor.commit();
+
         }
     }
 
@@ -65,9 +70,7 @@ public class Login extends AppCompatActivity {
         User = (EditText) findViewById(R.id.txtUser);
         String user = String.valueOf(User.getText());
 
-        Intent it = new Intent(Login.this,EditaUsuario.class);
-        it.putExtra("LogUser", user);
-
+        Intent it = new Intent(this, ResetPass.class);
         startActivity(it);
 
     }
