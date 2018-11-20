@@ -20,7 +20,7 @@ public class UsuarioDAO {
 
     public void create(Usuario usuario) {
         //Obtendo o objeto que representa o banco de dados
-        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+        SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
         //Preparando e executando o comando SQL
         String sql = "INSERT INTO usuario VALUES (?, ?)";
@@ -33,11 +33,11 @@ public class UsuarioDAO {
 
     public void update(Usuario usuario) {
         //Obtendo o objeto que representa o banco de dados
-        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+        SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
         //Preparando e executando o comando SQL
-        String sql = "UPDATE usuario SET user = ?, pass = ? WHERE user = ?";
-        String params[] = {usuario.getUser(), usuario.getPass(), usuario.getUser()};
+        String sql = "UPDATE usuario SET pass = ? WHERE user = ?";
+        String params[] = {usuario.getPass(), usuario.getUser()};
         db.execSQL(sql, params);
 
         //Fechando o banco de dados
@@ -46,7 +46,7 @@ public class UsuarioDAO {
 
     public void delete(String usuario) {
         //Obtendo o objeto que representa o banco de dados
-        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+        SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
         //Preparando e executando o comando SQL
         String sql = "DELETE FROM usuario WHERE usuario = ?";
@@ -59,7 +59,7 @@ public class UsuarioDAO {
 
     public Usuario findByUser(String user) {
         //Obtendo o objeto que representa o banco de dados
-        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+        SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
         //Preparando e executando o comando SQL e obtendo os dados
         String sql = "SELECT * FROM usuario WHERE user = ?";
@@ -83,7 +83,7 @@ public class UsuarioDAO {
 
     public List<Usuario> findAll() {
         //Obtendo o objeto que representa o banco de dados
-        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+        SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
         //Preparando e executando o comando SQL e obtendo os dados
         String sql = "SELECT * FROM usuario";

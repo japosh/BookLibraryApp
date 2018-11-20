@@ -25,7 +25,8 @@
         <activity android:name=".InfoLivro" />
         <activity android:name=".NovoLivro" />
         <activity android:name=".EditaLivro" />
-        <activity android:name=".EditaUsuario"></activity>
+        <activity android:name=".EditaUsuario" />
+        <activity android:name=".ManutCatalogo"></activity>
     </application>
 
 </manifest>

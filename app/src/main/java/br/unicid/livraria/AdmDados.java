@@ -16,7 +16,7 @@ public class AdmDados extends AppCompatActivity {
     }
     
     public void manutCatalogo(View botao){
-        Intent it = new Intent(this, Catalogo.class);
+        Intent it = new Intent(this, ManutCatalogo.class);
         startActivity(it);
 
 
@@ -31,7 +31,7 @@ public class AdmDados extends AppCompatActivity {
 
 
 
-    public void voltar(View botao){
+    public void sair(View botao){
         finish();
     }
 }

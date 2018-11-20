@@ -21,10 +21,10 @@ public class LivroDAO {
 
     public void create(Livro livro) {
         //Obtendo o objeto que representa o banco de dados
-        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+        SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
         //Preparando e executando o comando SQL
-        String sql = "INSERT INTO livro VALUES (?, ?, ?)";
+        String sql = "INSERT INTO livro VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         String params[] = {livro.getIsbn(), livro.getTitulo(), livro.getSubTitulo(), livro.getEdicao(), livro.getAutor(), livro.getQuantPag(), livro.getAnoPub(), livro.getEditora()};
         db.execSQL(sql, params);
 
@@ -34,11 +34,11 @@ public class LivroDAO {
 
     public void update(Livro livro) {
         //Obtendo o objeto que representa o banco de dados
-        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+        SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
         //Preparando e executando o comando SQL
-        String sql = "UPDATE aluno SET nome = ?, email = ? WHERE rgm = ?";
-        String params[] = {livro.getIsbn(), livro.getTitulo(), livro.getSubTitulo(), livro.getEdicao(), livro.getAutor(), livro.getQuantPag(), livro.getAnoPub(), livro.getEditora()};
+        String sql = "UPDATE livro SET titulo = ?, subTitulo = ?, edicao = ?, autor = ?, quantPag = ?, anoPub = ?, editora = ? WHERE isbn = ?";
+        String params[] = {livro.getTitulo(), livro.getSubTitulo(), livro.getEdicao(), livro.getAutor(), livro.getQuantPag(), livro.getAnoPub(), livro.getEditora(), livro.getIsbn()};
         db.execSQL(sql, params);
 
         //Fechando o banco de dados
@@ -47,7 +47,7 @@ public class LivroDAO {
 
     public void delete(String isbn) {
         //Obtendo o objeto que representa o banco de dados
-        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+        SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
         //Preparando e executando o comando SQL
         String sql = "DELETE FROM livro WHERE isbn = ?";
@@ -60,7 +60,7 @@ public class LivroDAO {
 
     public Livro  findByIsbn(String isbn) {
         //Obtendo o objeto que representa o banco de dados
-        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+        SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
         //Preparando e executando o comando SQL e obtendo os dados
         String sql = "SELECT * FROM livro WHERE isbn = ?";
@@ -90,10 +90,10 @@ public class LivroDAO {
 
     public List <Livro> findAll() {
         //Obtendo o objeto que representa o banco de dados
-        SQLiteDatabase db = DatabaseFactory.getDatabase(context);
+        SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
         //Preparando e executando o comando SQL e obtendo os dados
-        String sql = "SELECT * FROM aluno";
+        String sql = "SELECT * FROM livro";
         Cursor rs = db.rawQuery(sql, null);
 
         //Criando um objeto Lista de alunos (vazia)

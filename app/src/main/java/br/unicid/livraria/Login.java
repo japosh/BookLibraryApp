@@ -59,7 +59,12 @@ public class Login extends AppCompatActivity {
     }
 
     public void resetPass(View botao){
-        Intent it = new Intent(this, ResetPass.class);
+        User = (EditText) findViewById(R.id.txtUser);
+        String user = String.valueOf(User.getText());
+
+        Intent it = new Intent(Login.this,ResetPass.class);
+        it.putExtra("txtUser", user);
+        //Intent it = new Intent(this, ResetPass.class);
         startActivity(it);
 
     }

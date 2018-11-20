@@ -16,6 +16,14 @@ public class Livro {
     }
 
     public Livro(String isbn, String titulo, String subTitulo, String edicao, String autor, String quantPag, String anoPub, String editora) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.subTitulo = subTitulo;
+        this.edicao = edicao;
+        this.autor = autor;
+        this.quantPag = quantPag;
+        this.anoPub = anoPub;
+        this.editora = editora;
 
     }
 
