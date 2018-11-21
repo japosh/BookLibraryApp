@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import br.unicid.livraria.dao.UsuarioDAO;
 import br.unicid.livraria.domain.Usuario;
@@ -40,6 +43,7 @@ public class EditaUsuario extends AppCompatActivity {
 
         //Obtendo os valores dos campos
         String user = prefs.getString("username", "");
+        //String username = txtUser.setText(String.valueOf(user));
         String pass = prefs.getString("password", "");
         String passCheck = txtPass.getText().toString();
         String passNew = txtPassNew.getText().toString();
