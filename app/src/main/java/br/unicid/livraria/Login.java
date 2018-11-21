@@ -55,11 +55,10 @@ public class Login extends AppCompatActivity {
               User.setText(null);
               Pass.setText(null);
           }
-            SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
-            SharedPreferences.Editor editor = pref.edit();
-
-            editor.putString("key_name", user);
-
+            SharedPreferences prefs = getApplicationContext().getSharedPreferences("myAppPackage", 0);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("username", user);
+            editor.putString("password", pass);
             editor.commit();
 
         }
@@ -81,6 +80,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void voltar(View botao){
-        finish();
+        Intent it = new Intent(this, Inicio.class);
+        startActivity(it);
     }
 }

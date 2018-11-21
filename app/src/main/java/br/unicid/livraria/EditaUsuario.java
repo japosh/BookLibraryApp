@@ -15,6 +15,8 @@ public class EditaUsuario extends AppCompatActivity {
 
     private EditText txtUser;
     private EditText txtPass;
+    private EditText txtPassNew;
+    private EditText txtPassNew2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,26 +25,48 @@ public class EditaUsuario extends AppCompatActivity {
 
         txtUser = (EditText) findViewById(R.id.txtUser);
         txtPass = (EditText) findViewById(R.id.txtPass);
+        txtPassNew = (EditText) findViewById(R.id.txtPassNew);
+        txtPassNew2 = (EditText) findViewById(R.id.txtPassNew2);
     }
 
-    public void alterar(View view) {
+    public void altFoto(View botao){
+        Intent it = new Intent(this, Login.class);
+        startActivity(it);
+    }
 
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
-        SharedPreferences.Editor editor = pref.edit();
+    public void alterar(View botao) {
+
+        SharedPreferences prefs = getApplicationContext().getSharedPreferences("myAppPackage", 0);
 
         //Obtendo os valores dos campos
-        String user = pref.getString("key_name", null);
-        String pass = txtPass.getText().toString();
+        String user = prefs.getString("username", "");
+        String pass = prefs.getString("password", "");
+        String passCheck = txtPass.getText().toString();
+        String passNew = txtPassNew.getText().toString();
+        String passNew2 = txtPassNew2.getText().toString();
 
-        //Criando um objeto aluno com os dados dos campos
-        Usuario usuario = new Usuario(user, pass);
+        if( passCheck.equals( pass ) ) {
+            if( passNew.equals( passNew2 ) ) {
+                //Criando um objeto aluno com os dados dos campos
+                Usuario usuario = new Usuario(user, passNew);
 
-        //DAO para inserção do registro
-        UsuarioDAO dao = new UsuarioDAO(this);
-        dao.update(usuario);
+                //DAO para inserção do registro
+                UsuarioDAO dao = new UsuarioDAO(this);
+                dao.update(usuario);
 
-        //Exibe um alerta de sucesso.
-        Toast.makeText(this, "Usuário alterado com sucesso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Usuario atualizado com sucesso!", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "As novas senhas não batem!", Toast.LENGTH_SHORT).show();
+
+                //Limpando os campos
+                txtPassNew.setText(null);
+                txtPassNew2.setText(null);
+            }
+        }else{
+            Toast.makeText(this, "A senha atual está incorreta!", Toast.LENGTH_SHORT).show();
+            //Limpando os campos
+            txtPass.setText(null);
+        }
 
         //Limpando os campos
         txtUser.setText(null);
