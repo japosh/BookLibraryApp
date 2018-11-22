@@ -1,11 +1,9 @@
 package br.unicid.livraria;
 
-import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.ScrollView;
 
 import java.util.List;
 
