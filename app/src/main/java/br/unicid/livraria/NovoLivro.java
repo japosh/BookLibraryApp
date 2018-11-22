@@ -1,16 +1,12 @@
 package br.unicid.livraria;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -32,8 +28,6 @@ public class NovoLivro extends AppCompatActivity {
     private EditText txtAnoPub;
     private EditText txtEditora;
     private ImageView foto;
-    private Button botao;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +97,7 @@ public class NovoLivro extends AppCompatActivity {
         dao.create(livro);
 
         //Confirmando a alteração
-        Toast.makeText(this, "Registro alterado com sucesso!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Registro criado com sucesso!", Toast.LENGTH_SHORT).show();
 
         //Limpando os campos
 

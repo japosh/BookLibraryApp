@@ -152,7 +152,7 @@
         app:layout_constraintVertical_bias="0.252" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/foto"
         android:layout_width="108dp"
         android:layout_height="111dp"
         android:layout_marginStart="8dp"
@@ -171,16 +171,16 @@
         android:id="@+id/btnAltFoto"
         android:layout_width="115dp"
         android:layout_height="39dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:onClick="altFoto"
+        android:onClick="pegarFoto"
         android:text="EDITAR FOTO"
         app:layout_constraintBottom_toTopOf="@+id/txtUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/foto"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.67" />
 
