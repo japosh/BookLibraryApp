@@ -26,6 +26,7 @@ public class Catalogo extends AppCompatActivity {
 
 
         lvwLista = (ListView) findViewById(R.id.lvwLista);
+        livros = new LivroDAO(this).findAll();
         adapter = new LivrosAdapter(this, livros);
 
         lvwLista.setAdapter(adapter);
