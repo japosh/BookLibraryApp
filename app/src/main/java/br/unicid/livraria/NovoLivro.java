@@ -1,16 +1,28 @@
 package br.unicid.livraria;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
 
 import br.unicid.livraria.dao.LivroDAO;
 import br.unicid.livraria.domain.Livro;
 
 public class NovoLivro extends AppCompatActivity {
 
+    public static final int REQUEST_IMAGE_CAPTURE = 1;
     private EditText txtISBN;
     private EditText txtTitulo;
     private EditText txtSubTitulo;
@@ -19,6 +31,9 @@ public class NovoLivro extends AppCompatActivity {
     private EditText txtQuantPag;
     private EditText txtAnoPub;
     private EditText txtEditora;
+    private ImageView foto;
+    private Button botao;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +49,38 @@ public class NovoLivro extends AppCompatActivity {
         txtQuantPag = (EditText) findViewById(R.id.txtQuantPag);
         txtAnoPub = (EditText) findViewById(R.id.txtAnoPub);
         txtEditora = (EditText) findViewById(R.id.txtEditora);
+        foto = (ImageView) findViewById(R.id.foto);
 
+        findViewById(R.id.btnImgCapa).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pegarFoto();
+            }
+        });
+    }
+
+    public void pegarFoto(){
+        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        i.setType("Image/*");
+        startActivityForResult(i, REQUEST_IMAGE_CAPTURE);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == REQUEST_IMAGE_CAPTURE){
+            if(resultCode == RESULT_OK){
+                Bundle extras = data.getExtras();
+                Bitmap bitmap = (Bitmap) extras.get("data");
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byte[] byteArray = stream.toByteArray();
+                bitmap.recycle();
+                foto.setImageBitmap(bitmap);
+            }
+
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     public void salvar(View view){
@@ -48,6 +94,7 @@ public class NovoLivro extends AppCompatActivity {
         String quantPag  = txtQuantPag.getText().toString();
         String anoPub = txtAnoPub.getText().toString();
         String editora = txtEditora.getText().toString();
+
 
         //Criando um objeto com as variaveis
         Livro livro = new Livro(isbn, titulo, subTitulo, edicao, autor, quantPag, anoPub, editora);

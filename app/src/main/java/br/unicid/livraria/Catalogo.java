@@ -19,7 +19,6 @@ public class Catalogo extends AppCompatActivity {
     private LivrosAdapter adapter;
     private List <Livro> livros;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
