@@ -93,7 +93,7 @@ public class LivroDAO {
         SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
         //Preparando e executando o comando SQL e obtendo os dados
-        String sql = "SELECT * FROM livro";
+        String sql = "SELECT titulo FROM livro";
         Cursor rs = db.rawQuery(sql, null);
 
         //Criando um objeto Lista de alunos (vazia)
@@ -103,14 +103,7 @@ public class LivroDAO {
         while (rs.moveToNext()) {
             //Cria um objeto aluno, preencha com os dados da linha
             Livro livro = new Livro();
-            livro.setIsbn(rs.getString(0));
-            livro.setTitulo(rs.getString(1));
-            livro.setSubTitulo(rs.getString(2));
-            livro.setEdicao(rs.getString(3));
-            livro.setAutor(rs.getString(4));
-            livro.setQuantPag(rs.getString(5));
-            livro.setAnoPub(rs.getString(6));
-            livro.setEditora(rs.getString(7));
+            livro.setTitulo(rs.getString(0));
 
             //Adiciona o objeto à lista
             livros.add(livro);

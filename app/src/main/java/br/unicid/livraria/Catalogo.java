@@ -31,7 +31,6 @@ public class Catalogo extends AppCompatActivity {
 
         lvwLista.setAdapter(adapter);
 
-
     }
 
     public void voltar(View botao){
