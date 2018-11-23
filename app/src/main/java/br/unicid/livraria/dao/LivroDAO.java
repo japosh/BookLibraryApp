@@ -88,7 +88,7 @@ public class LivroDAO {
         return livro;
     }
 
-    public List <Livro> findAll() {
+    public ArrayList <Livro> findAll() {
         //Obtendo o objeto que representa o banco de dados
         SQLiteDatabase db = DatabaseFactory.getWritableDatabase(context);
 
@@ -97,7 +97,7 @@ public class LivroDAO {
         Cursor rs = db.rawQuery(sql, null);
 
         //Criando um objeto Lista de alunos (vazia)
-        List <Livro> livros = new ArrayList<>();
+        ArrayList <Livro> livros = new ArrayList<>();
 
         //Enquanto houver linhas registros...
         while (rs.moveToNext()) {

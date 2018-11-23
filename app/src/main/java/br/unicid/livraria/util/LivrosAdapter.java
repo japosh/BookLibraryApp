@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.unicid.livraria.R;
@@ -18,7 +20,8 @@ public class LivrosAdapter extends BaseAdapter {
 
     private List<Livro> livros;
 
-    public LivrosAdapter(Context context, List<Livro> livros){
+
+    public LivrosAdapter(Context context, ArrayList<Livro> livros){
         this.context = context;
         this.livros = livros;
     }
@@ -40,15 +43,15 @@ public class LivrosAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View item = LayoutInflater.from(context).inflate(R.layout.catalogo, null);
+
+        View item = LayoutInflater.from(context).inflate(R.layout.livro_item, null);
 
         Livro l = livros.get(position);
 
         //Não sei como colocar esse lbl dentro do list view
-      //  TextView titulo = (TextView) item.findViewById(R.id.lblTitulo);
+        TextView titulo = (TextView) item.findViewById(R.id.lblTitulo);
 
-      //  titulo.setText(l.getTitulo());
-
+        titulo.setText(l.getTitulo());
 
         return item;
     }

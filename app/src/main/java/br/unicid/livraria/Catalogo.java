@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import br.unicid.livraria.dao.LivroDAO;
 import br.unicid.livraria.domain.Livro;
@@ -15,7 +15,7 @@ public class Catalogo extends AppCompatActivity {
 
     private ListView lvwLista;
     private LivrosAdapter adapter;
-    private List <Livro> livros;
+    private ArrayList <Livro> livros;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
