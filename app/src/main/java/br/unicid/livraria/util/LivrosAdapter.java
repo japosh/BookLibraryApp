@@ -44,7 +44,7 @@ public class LivrosAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View item = LayoutInflater.from(context).inflate(R.layout.catalogo, null);
+        View item = LayoutInflater.from(context).inflate(R.layout.livro_item, null);
 
         Livro l = livros.get(position);
 
