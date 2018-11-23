@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.ScrollView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.unicid.livraria.dao.LivroDAO;
@@ -17,7 +18,7 @@ public class Catalogo extends AppCompatActivity {
 
     private ListView lvwLista;
     private LivrosAdapter adapter;
-    private List <Livro> livros;
+    private ArrayList <Livro> livros  ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
